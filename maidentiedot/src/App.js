@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-///set "REACT_APP_API_KEY=16d75230fc7f5d7da490b3e275026cd7" && npm start
 
 const Filter = (props) => {
   return (
@@ -77,25 +76,12 @@ const ShowWeather = (props) => {
   )
 }
 
-const Notification = ({ message }) => {
-  if (message === null) {
-    return null
-  }
-
-  return (
-    <div calssName="successfulOperation">
-      {message}
-    </div>
-  )
-}
-
 const App = () => {
 
   const [countries, setCountries] = useState([])
   const [countriesFiltered, setCountriesFiltered] = useState(countries)
   const [weather, setWeather] = useState()
   const [city, setCity] = useState('helsinki')
-  const [successMessage, setSuccessMessage] = useState('operation successful')
   const api_key = process.env.REACT_APP_API_KEY
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=metric`
 
